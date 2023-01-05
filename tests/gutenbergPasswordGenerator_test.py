@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0,'./app/')
 
-import string, pytest, gutenbergpy.textget, app.gutenbergPasswordGenerator as gutenbergPasswordGenerator
+import string, pytest, gutenbergpy.textget, gutenbergPasswordGenerator
 
 
 @pytest.fixture
