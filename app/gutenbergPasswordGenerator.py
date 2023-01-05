@@ -1,14 +1,13 @@
 import gutenbergpy.textget, string, random
 
 
-#this function accepts one parameter, the BOOK_ID variable, and gets the full text.
-def get_book(BOOK_ID) -> bytes:
+def get_book(BOOK_ID: int) -> bytes:
+    '''accepts one integer parameter, BOOK_ID, gets the full text of the corresponding novel'''
     book = gutenbergpy.textget.get_text_by_id(BOOK_ID)
     return book
 
-#this function takes the full text of the novel, and turns it into a full list that is a word dictionary used
-#to create passwords
-def clean_book(book) -> list:
+def clean_book(book: bytes) -> list:
+    '''takes full text of the novel, converts it to a word dictionary used to create passwords'''
     final_book = []
     clean_book = gutenbergpy.textget.strip_headers(book)
     clean_book = clean_book.decode()
@@ -18,8 +17,9 @@ def clean_book(book) -> list:
     final_book = list(final_book)
     return final_book
 
-#This function uses the output of the above clean_book function, and generates a password with appropriate length
-def create_candidates(final_book, PASSWORD_LENGTH) -> list:
+def create_candidates(final_book: list, PASSWORD_LENGTH: int) -> list:
+    '''takes a cleaned list of words from a classic novel, generates a series of password candidates that meet the specifications
+    length is at least PASSWORD_LENGTH, contains 2 numerical digits, and one special character'''
     NUMBER_OF_PASSWORDS = 5
     password_candidates = []
     numbers = [*range(1,100)]
@@ -45,8 +45,9 @@ def create_candidates(final_book, PASSWORD_LENGTH) -> list:
         password+=random.choice(characters)
         password_candidates.append(password)
     return password_candidates
-#BOOK_ID is keyed to Edward Gibbon's Decline and Fall of the Roman Empire, PASSWORD_LENGTH was chosen after some testing to determine what a good password looked like         
+
 def generate_passwords(BOOK_ID=890,PASSWORD_LENGTH=20) -> list:
+    '''default BOOK_ID is keyed to Edward Gibbon's Decline and Fall of the Roman Empire, PASSWORD_LENGTH was chosen by trial and error'''
     book = get_book(BOOK_ID)
     final_book = clean_book(book)
     return create_candidates(final_book, PASSWORD_LENGTH)
