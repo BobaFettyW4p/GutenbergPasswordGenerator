@@ -49,6 +49,9 @@ def create_candidates(final_book: list, PASSWORD_LENGTH: int) -> list:
     return password_candidates
 
 
+
+
+
 def generate_passwords(BOOK_ID=890, PASSWORD_LENGTH=20) -> list:
     """default BOOK_ID is keyed to Edward Gibbon's Decline and Fall of the Roman Empire, PASSWORD_LENGTH was chosen by trial and error"""
     book = get_book(BOOK_ID)
