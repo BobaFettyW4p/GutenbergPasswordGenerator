@@ -1,5 +1,6 @@
 import sys
-sys.path.insert(0,'./app/')
+
+sys.path.insert(0, "./app/")
 
 import string, pytest, gutenbergpy.textget, gutenbergPasswordGenerator
 
@@ -9,17 +10,21 @@ def sample_text():
     book = gutenbergpy.textget.get_text_by_id(890)
     return book
 
+
 @pytest.fixture
 def sample_dictionary():
     book = gutenbergPasswordGenerator.get_book(890)
     final_book = gutenbergPasswordGenerator.clean_book(book)
     return final_book
 
+
 def test_get_book(sample_text):
     assert type(gutenbergPasswordGenerator.get_book(890)) is bytes
 
+
 def test_clean_book_type(sample_text):
     assert type(gutenbergPasswordGenerator.clean_book(sample_text)) is list
+
 
 def test_clean_book_word_length(sample_text):
     book = gutenbergPasswordGenerator.clean_book(sample_text)
@@ -30,6 +35,7 @@ def test_clean_book_word_length(sample_text):
             break
     assert valid == True
 
+
 def test_capitalizaton_clean_book(sample_text):
     book = gutenbergPasswordGenerator.clean_book(sample_text)
     valid = True
@@ -38,6 +44,7 @@ def test_capitalizaton_clean_book(sample_text):
             valid = False
             break
     assert valid
+
 
 def test_clean_book_word_length(sample_text):
     book = gutenbergPasswordGenerator.clean_book(sample_text)
@@ -48,6 +55,7 @@ def test_clean_book_word_length(sample_text):
             break
     assert valid
 
+
 def test_clean_book_uniqueness(sample_text):
     book = gutenbergPasswordGenerator.clean_book(sample_text)
     valid = True
@@ -57,14 +65,20 @@ def test_clean_book_uniqueness(sample_text):
             break
     assert valid
 
+
 def test_create_candidates_number(sample_dictionary):
     PASSWORD_LENGTH = 20
-    candidates = gutenbergPasswordGenerator.create_candidates(sample_dictionary,PASSWORD_LENGTH)
+    candidates = gutenbergPasswordGenerator.create_candidates(
+        sample_dictionary, PASSWORD_LENGTH
+    )
     assert len(candidates) == 5
+
 
 def test_create_candidates_two_digits(sample_dictionary):
     PASSWORD_LENGTH = 20
-    candidates = gutenbergPasswordGenerator.create_candidates(sample_dictionary,PASSWORD_LENGTH)
+    candidates = gutenbergPasswordGenerator.create_candidates(
+        sample_dictionary, PASSWORD_LENGTH
+    )
     valid = True
     for candidate in candidates:
         digits = [x for x in candidate if x.isdigit()]
@@ -72,18 +86,24 @@ def test_create_candidates_two_digits(sample_dictionary):
             valid = False
     assert valid
 
+
 def test_create_candidates_password_length(sample_dictionary):
     PASSWORD_LENGTH = 20
-    candidates = gutenbergPasswordGenerator.create_candidates(sample_dictionary,PASSWORD_LENGTH)
+    candidates = gutenbergPasswordGenerator.create_candidates(
+        sample_dictionary, PASSWORD_LENGTH
+    )
     valid = True
     for candidate in candidates:
         if len(candidate) < PASSWORD_LENGTH:
             valid = False
     assert valid
 
+
 def test_create_candidates_contains_special_character(sample_dictionary):
     PASSWORD_LENGTH = 20
-    candidates = gutenbergPasswordGenerator.create_candidates(sample_dictionary,PASSWORD_LENGTH)
+    candidates = gutenbergPasswordGenerator.create_candidates(
+        sample_dictionary, PASSWORD_LENGTH
+    )
     valid = True
     for candidate in candidates:
         valid = False
@@ -94,4 +114,3 @@ def test_create_candidates_contains_special_character(sample_dictionary):
         if not valid:
             assert valid
     assert valid
-        
