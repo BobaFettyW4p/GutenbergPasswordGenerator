@@ -45,7 +45,7 @@ def get_config():
     cfg.VCS = "git"
     cfg.style = "pep440"
     cfg.tag_prefix = ""
-    cfg.parentdir_prefix = ""
+    cfg.parentdir_prefix = "gutenbergPasswordGenerator"
     cfg.versionfile_source = "./app/_version.py"
     cfg.verbose = False
     return cfg
