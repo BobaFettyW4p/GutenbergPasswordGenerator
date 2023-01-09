@@ -1,4 +1,6 @@
-import gutenbergpy.textget, string, random
+import gutenbergpy.textget
+import string
+import random
 
 
 def get_book(BOOK_ID: int) -> bytes:
@@ -20,8 +22,9 @@ def clean_book(book: bytes) -> list:
 
 
 def create_candidates(final_book: list, PASSWORD_LENGTH: int) -> list:
-    """takes a cleaned list of words from a classic novel, generates a series of password candidates that meet the specifications
-    length is at least PASSWORD_LENGTH, contains 2 numerical digits, and one special character"""
+    """takes a cleaned list of words from a classic novel, generates a series of password candidates
+    that meet the specifications, length is at least PASSWORD_LENGTH
+    contains 2 numerical digits, and one special character"""
     NUMBER_OF_PASSWORDS = 5
     password_candidates = []
     numbers = [*range(1, 100)]
@@ -49,11 +52,9 @@ def create_candidates(final_book: list, PASSWORD_LENGTH: int) -> list:
     return password_candidates
 
 
-
-
-
 def generate_passwords(BOOK_ID=890, PASSWORD_LENGTH=20) -> list:
-    """default BOOK_ID is keyed to Edward Gibbon's Decline and Fall of the Roman Empire, PASSWORD_LENGTH was chosen by trial and error"""
+    """default BOOK_ID is keyed to Edward Gibbon's Decline and Fall of the Roman Empire
+    PASSWORD_LENGTH was chosen by trial and error"""
     book = get_book(BOOK_ID)
     final_book = clean_book(book)
     return create_candidates(final_book, PASSWORD_LENGTH)

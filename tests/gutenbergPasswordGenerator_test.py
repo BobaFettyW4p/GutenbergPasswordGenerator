@@ -1,8 +1,7 @@
-import sys
-
-sys.path.insert(0, "./app/")
-
-import string, pytest, gutenbergpy.textget, gutenbergPasswordGenerator
+import string
+import pytest
+import gutenbergpy.textget
+import gutenbergPasswordGenerator
 
 
 @pytest.fixture
@@ -33,7 +32,7 @@ def test_clean_book_word_length(sample_text):
         if len(page) < 4:
             valid = False
             break
-    assert valid == True
+    assert valid
 
 
 def test_capitalizaton_clean_book(sample_text):
@@ -41,16 +40,6 @@ def test_capitalizaton_clean_book(sample_text):
     valid = True
     for page in book:
         if page[0] in string.ascii_lowercase:
-            valid = False
-            break
-    assert valid
-
-
-def test_clean_book_word_length(sample_text):
-    book = gutenbergPasswordGenerator.clean_book(sample_text)
-    valid = True
-    for word in book:
-        if len(word) <= 3:
             valid = False
             break
     assert valid
@@ -108,7 +97,8 @@ def test_create_candidates_contains_special_character(sample_dictionary):
     for candidate in candidates:
         valid = False
         for character in candidate:
-            if character not in string.ascii_letters or not character.isdigit():
+            if character not in string.ascii_letters \
+              or not character.isdigit():
                 valid = True
                 break
         if not valid:
