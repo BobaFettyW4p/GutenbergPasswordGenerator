@@ -2,6 +2,9 @@ name: Run Python tests
 
 on: [push]
 
+env:
+  PYTHONPATH: './app/'
+
 jobs:
   build:
     name: Run tests
