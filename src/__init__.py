@@ -1,4 +1,4 @@
-from gutenbergPasswordGenerator import generate_passwords
+from .gutenbergPasswordGenerator import generate_passwords
 
 
 from . import _version
