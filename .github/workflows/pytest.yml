@@ -3,7 +3,7 @@ name: Run Python tests
 on: [push]
 
 env:
-  PYTHONPATH: './app/'
+  PYTHONPATH: './src/'
 
 jobs:
   build:
