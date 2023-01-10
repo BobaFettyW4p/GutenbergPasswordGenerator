@@ -2,6 +2,9 @@ name: Run Python tests
 
 on: [push]
 
+env:
+  PYTHONPATH: "/home/runner/work/gutenbergPasswordGenerator/gutenbergPasswordGenerator/src"
+
 jobs:
   build:
     name: Run tests
