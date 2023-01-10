@@ -2,9 +2,6 @@ name: Run Python tests
 
 on: [push]
 
-env:
-  PYTHONPATH: './src/'
-
 jobs:
   build:
     name: Run tests
@@ -29,4 +26,3 @@ jobs:
           emoji: true
           verbose: true
           job-summary: true
-
