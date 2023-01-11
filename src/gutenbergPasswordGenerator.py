@@ -4,15 +4,59 @@ import random
 
 
 def get_book(BOOK_ID: int) -> bytes:
-    """accepts one integer parameter, BOOK_ID, gets the full text of the
-    corresponding novel"""
+    """
+    gets full text of corresponding value
+
+    Parameters
+    ----------
+    BOOK_ID
+        integer that will correspond to a specific book in the 
+        Gutenberg Project
+
+    Returns
+    -------
+    a bytes object that contains the full text of the novel
+
+    Examples
+    --------
+
+    get_book()
+    default value is 890, will return Edward Gibbon's Decline and Fall of the 
+    Roman Empire
+
+    get_book(2701)
+    returns Moby Dick; Or, The Whale by Herman Melville
+    
+    """
     book = gutenbergpy.textget.get_text_by_id(BOOK_ID)
     return book
 
 
 def clean_book(book: bytes) -> list:
-    """takes full text of the novel, converts it to a word dictionary used to
-    create passwords"""
+    """
+    takes bytes object from get_book function, converts it a list used to 
+    create password candidates
+    
+    Parameters
+    ----------
+    book
+        bytes object created via the get_book function, contains the full 
+        text of the specified work from the Gutenberg Project
+
+    Returns
+    -------
+    A setified list object that contains every unique word in the work
+
+    Examples
+    --------
+
+    clean_book('Hello World')
+    ['Hello','World']
+
+    clean_book('Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo')
+    ['Buffalo']
+
+    """
     final_book = []
     clean_book = gutenbergpy.textget.strip_headers(book)
     clean_book = clean_book.decode()
@@ -24,10 +68,34 @@ def clean_book(book: bytes) -> list:
 
 
 def create_candidates(final_book: list, PASSWORD_LENGTH: int) -> list:
-    """takes a cleaned list of words from a classic novel, generates a series
-    of password candidates that meet the specifications,
-    length is at least PASSWORD_LENGTH, contains 2 numerical digits
-    and one special character"""
+    """
+    accepts the setified list object from the clean_book function,
+    generates 5 candidates that contain 2 numbers and 1 special character
+    
+    Parameters
+    ----------
+    final_book
+        setified list object created by the clean_book function
+    
+    PASSWORD_LENGTH
+        int that specifies the minimum length for password candiates
+
+    Returns
+    -------
+    a list object of length 5 containing strings of viable password candiates:
+        at least PASSWORD_LENGTH in length
+        containing both capital and lowercase letters
+        containing at least 2 numerical characters
+        containing at least 1 special character
+
+    Examples
+    --------
+    create_candidates()
+        ['FinishedEntertained57*', 'WillinglySeekMaster28#', \
+            'IncreasedFastingTreasures10&', 'AnnouncingPetulantly53)', \
+            'AerialSworeExposition99)']
+
+    """
     NUMBER_OF_PASSWORDS = 5
     password_candidates = []
     numbers = [*range(1, 100)]
