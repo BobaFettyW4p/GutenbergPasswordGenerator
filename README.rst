@@ -14,7 +14,7 @@ Gutenberg Password Generator
    :alt: PyTest
 
 .. image:: https://img.shields.io/codecov/c/gh/BobaFettyW4p/gutenbergPasswordGenerator
-   :target: https://img.shields.io/codecov/c/gh/BobaFettyW4p/gutenbergPasswordGenerator
+   :target: https://app.codecov.io/github/BobaFettyW4p/gutenbergPasswordGenerator
    :alt: Codecov
 
 Generates secure passwords using the text of classic novels
