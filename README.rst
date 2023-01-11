@@ -41,7 +41,7 @@ To Use
 Developing
 ----------
  
- This project utilizes ``black`` and ``flake8`` to format and lint code, and leverages ``pre-commit`` for enforcement.
+This project utilizes ``black`` and ``flake8`` to format and lint code, and leverages ``pre-commit`` for enforcement.
  
 To configure your personal environment/commit hooks:
 
