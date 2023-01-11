@@ -10,7 +10,7 @@ def get_book(BOOK_ID: int) -> bytes:
     Parameters
     ----------
     BOOK_ID
-        integer that will correspond to a specific book in the 
+        integer that will correspond to a specific book in the
         Gutenberg Project
 
     Returns
@@ -21,12 +21,12 @@ def get_book(BOOK_ID: int) -> bytes:
     --------
 
     get_book()
-    default value is 890, will return Edward Gibbon's Decline and Fall of the 
+    default value is 890, will return Edward Gibbon's Decline and Fall of the
     Roman Empire
 
     get_book(2701)
     returns Moby Dick; Or, The Whale by Herman Melville
-    
+
     """
     book = gutenbergpy.textget.get_text_by_id(BOOK_ID)
     return book
@@ -34,13 +34,13 @@ def get_book(BOOK_ID: int) -> bytes:
 
 def clean_book(book: bytes) -> list:
     """
-    takes bytes object from get_book function, converts it a list used to 
+    takes bytes object from get_book function, converts it a list used to
     create password candidates
-    
+
     Parameters
     ----------
     book
-        bytes object created via the get_book function, contains the full 
+        bytes object created via the get_book function, contains the full
         text of the specified work from the Gutenberg Project
 
     Returns
@@ -53,7 +53,8 @@ def clean_book(book: bytes) -> list:
     clean_book('Hello World')
     ['Hello','World']
 
-    clean_book('Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo')
+    clean_book('Buffalo buffalo Buffalo buffalo \
+        buffalo buffalo Buffalo buffalo')
     ['Buffalo']
 
     """
@@ -71,12 +72,12 @@ def create_candidates(final_book: list, PASSWORD_LENGTH: int) -> list:
     """
     accepts the setified list object from the clean_book function,
     generates 5 candidates that contain 2 numbers and 1 special character
-    
+
     Parameters
     ----------
     final_book
         setified list object created by the clean_book function
-    
+
     PASSWORD_LENGTH
         int that specifies the minimum length for password candiates
 
