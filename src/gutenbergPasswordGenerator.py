@@ -126,9 +126,34 @@ def create_candidates(final_book: list, PASSWORD_LENGTH: int) -> list:
 
 
 def generate_passwords(BOOK_ID=890, PASSWORD_LENGTH=20) -> list:
-    """default BOOK_ID is keyed to Edward Gibbon's
-    Decline and Fall of the Roman Empire, PASSWORD_LENGTH was chosen by trial
-    and error"""
+    """
+    wrapper function, incorporates all previous functions to get reasonable output
+
+    Parameters
+    ----------
+    BOOK_ID
+        int that corresponds to a specific Gutenberg project title
+            -defaults to Edward Gibbon's Decline and Fall of the Roman Empire
+
+    PASSWORD_LENGTH
+        int that specifies the length of the password candidates
+            -defaults to 20, selected via trial and error
+
+    Returns
+    -------
+    a list of 5 password candidate strings:
+        at least PASSWORD_LENGTH in length
+        containing both capital and lowercase letters
+        containing at least 2 numerical characters
+        containing at least 1 special character
+
+    Examples
+    --------
+    create_candidates()
+        ['FinishedEntertained57*', 'WillinglySeekMaster28#', \
+            'IncreasedFastingTreasures10&', 'AnnouncingPetulantly53)', \
+            'AerialSworeExposition99)']
+    """
     book = get_book(BOOK_ID)
     final_book = clean_book(book)
     return create_candidates(final_book, PASSWORD_LENGTH)

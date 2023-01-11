@@ -103,3 +103,44 @@ def test_create_candidates_contains_special_character(sample_dictionary):
         if not valid:
             assert valid
     assert valid
+
+
+def test_generate_passwords_candidate_number():
+    candidates = gutenbergPasswordGenerator.generate_passwords()
+    assert len(candidates) == 5
+
+
+def test_generate_passwords_candidate_length():
+    PASSWORD_LENGTH = 20
+    candidates = gutenbergPasswordGenerator.generate_passwords(890, PASSWORD_LENGTH)
+    valid = True
+    for candidate in candidates:
+        if len(candidate) < PASSWORD_LENGTH:
+            valid = False
+    assert valid
+
+
+def test_generate_passwords_candidate_two_digits():
+    PASSWORD_LENGTH = 20
+    candidates = gutenbergPasswordGenerator.generate_passwords(890, PASSWORD_LENGTH)
+    valid = True
+    for candidate in candidates:
+        digits = [x for x in candidate if x.isdigit()]
+        if len(digits) != 2:
+            valid = False
+    assert valid
+
+
+def test_generate_passwords_contains_special_character():
+    PASSWORD_LENGTH = 20
+    candidates = gutenbergPasswordGenerator.generate_passwords(890, PASSWORD_LENGTH)
+    valid = True
+    for candidate in candidates:
+        valid = False
+        for character in candidate:
+            if character not in string.ascii_letters or not character.isdigit():
+                valid = True
+                break
+        if not valid:
+            assert valid
+    assert valid
