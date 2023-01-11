@@ -13,6 +13,10 @@ Gutenberg Password Generator
    :target: https://github.com/BobaFettyW4p/gutenbergPasswordGenerator/actions/workflows/pytest.yml
    :alt: PyTest
 
+.. image:: https://img.shields.io/codecov/c/gh/BobaFettyW4p/gutenbergPasswordGenerator
+   :target: https://img.shields.io/codecov/c/gh/BobaFettyW4p/gutenbergPasswordGenerator
+   :alt: Codecov
+
 Generates secure passwords using the text of classic novels
 
 Installation
