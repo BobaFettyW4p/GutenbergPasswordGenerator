@@ -36,3 +36,33 @@ To Use
 
    import src.gutenbergPasswordGenerator
    src.gutenbergPasswordGenerator.generate_passwords()
+   
+   
+Developing
+----------
+ 
+ This project utilizes ``black`` and ``flake8`` to format and lint code, and leverages ``pre-commit`` for enforcement.
+ 
+To configure your personal environment/commit hooks:
+
+.. code-block:: bash
+   
+   pip install black flake8 pre-commit
+   pre-commit install
+   
+Releases
+--------
+
+Releases are published whenever a tag is pushed to Github
+
+.. code-block:: bash
+
+   # set version number
+   export RELEASE=x.x.x
+   
+   # create tags
+   git commit --allow-empty -m "Release $RELEASE"
+   git tag -a $RELEASE -m "Version $RELEASE
+   
+   #push
+   git push upstream --tags
