@@ -7,7 +7,7 @@ with open("requirements.txt", "r") as f:
     requirements = [line.strip() for line in f]
 
 setuptools.setup(
-    name="Gutenberg Password Generator",
+    name="gutenbergPasswordGenerator",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     author="Matthew Ivancic",
