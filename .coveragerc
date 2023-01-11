@@ -3,3 +3,4 @@ omit =
     setup.py
     versioneer.py
     src/_version.py
+    tests/*
