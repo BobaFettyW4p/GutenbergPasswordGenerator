@@ -11,7 +11,7 @@ Installation
 ------------
 
 
-.. code-block::bash
+.. code-block:: bash
 
 pip install gutenbergPasswordGenerator
 
@@ -20,6 +20,6 @@ pip install gutenbergPasswordGenerator
 To Use
 ------------
 
-.. code-block::bash
+.. code-block:: bash
 import src.gutenbergPasswordGenerator
 src.gutenbergPasswordGenerator.generate_passwords()
