@@ -64,5 +64,5 @@ Releases are published whenever a tag is pushed to Github
    git commit --allow-empty -m "Release $RELEASE"
    git tag -a $RELEASE -m "Version $RELEASE
    
-   #push
+   # push
    git push upstream --tags
