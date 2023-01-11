@@ -97,8 +97,7 @@ def test_create_candidates_contains_special_character(sample_dictionary):
     for candidate in candidates:
         valid = False
         for character in candidate:
-            if character not in string.ascii_letters \
-              or not character.isdigit():
+            if character not in string.ascii_letters or not character.isdigit():
                 valid = True
                 break
         if not valid:

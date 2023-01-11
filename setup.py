@@ -12,7 +12,7 @@ setuptools.setup(
     cmdclass=versioneer.get_cmdclass(),
     author="Matthew Ivancic",
     author_email="matthew.ivancic91@gmail.com",
-    description= "Python library to generate passwords using the text of classic novels",
+    description="Python library to generate passwords using the text of classic novels",
     long_description=long_description,
     long_description_content_type="text/x-rst",
     packages=setuptools.find_packages(),
