@@ -18,7 +18,8 @@ Gutenberg Password Generator
    :alt: Codecov
 
 This module leverages the `gutenbergpy <https://pypi.org/project/gutenbergpy/>`_ library to retreive the text
-of classic novels from the Gutenberg Project, a collection of open-source ebooks. It then creates 5 secure password candidates
+of classic novels from the Gutenberg Project, a collection of open-source ebooks. It then returns 5 secure password candidates
+in a list
 
 Installation
 ------------
