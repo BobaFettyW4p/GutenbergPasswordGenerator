@@ -36,8 +36,8 @@ To Use
 
 .. code-block:: bash
 
-   import src.gutenbergPasswordGenerator
-   src.gutenbergPasswordGenerator.generate_passwords()
+   import gutenbergPasswordGenerator
+   gutenbergPasswordGenerator.generate_passwords()
    
    
 Developing
