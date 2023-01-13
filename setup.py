@@ -15,7 +15,7 @@ setuptools.setup(
     description="Python library to generate passwords using the text of classic novels",
     long_description=long_description,
     long_description_content_type="text/x-rst",
-    packages=["src"],
+    packages=["src/gutenbergPasswordGenerator"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
