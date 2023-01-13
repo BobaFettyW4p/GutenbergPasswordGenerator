@@ -3,5 +3,5 @@ include LICENSE
 include requirements.txt
 graft .
 recursive-exclude * *.py[co]
-include ./src/versioneer.py
-include ./src/_version.py
+include ./src/gutenbergPasswordGenerator/versioneer.py
+include ./src/gutenbergPasswordGenerator/_version.py

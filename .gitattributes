@@ -1,1 +1,1 @@
-./src/_version.py export-subst
+./src/gutenbergPasswordGenerator/_version.py export-subst
