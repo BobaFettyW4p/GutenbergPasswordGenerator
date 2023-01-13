@@ -34,10 +34,13 @@ Installation
 To Use
 ------------
 
+
+
 .. code-block:: bash
 
    import gutenbergPasswordGenerator
    gutenbergPasswordGenerator.generate_passwords()
+   # currently, the project is not in a finished state; functions properly with src.gutenbergPasswordGenerator
    
    
 Developing
